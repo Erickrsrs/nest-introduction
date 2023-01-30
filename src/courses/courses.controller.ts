@@ -1,13 +1,8 @@
+import { UpdateCourseDto } from './dto/update-course.dto';
+import { CreateCourseDto } from './dto/create-course.dto';
 import { CoursesService } from './courses.service';
-import { Controller, Get, HttpStatus } from '@nestjs/common';
-import {
-  Body,
-  Delete,
-  HttpCode,
-  Param,
-  Patch,
-  Post,
-} from '@nestjs/common/decorators';
+import { Controller, Get } from '@nestjs/common';
+import { Body, Delete, Param, Patch, Post } from '@nestjs/common/decorators';
 
 @Controller('courses')
 export class CoursesController {
@@ -24,14 +19,13 @@ export class CoursesController {
   }
 
   @Post('create')
-  @HttpCode(HttpStatus.NO_CONTENT)
-  create(@Body() body) {
-    return this.coursesService.create(body);
+  create(@Body() createCourseDto: CreateCourseDto) {
+    return this.coursesService.create(createCourseDto);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body) {
-    return this.coursesService.update(id, body);
+  update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
+    return this.coursesService.update(id, updateCourseDto);
   }
 
   @Delete(':id')
