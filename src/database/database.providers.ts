@@ -1,3 +1,4 @@
+import { CourseRefactoring1675255779013 } from 'src/migrations/1675255779013-CourseRefactoring';
 import { DataSource } from 'typeorm';
 
 export const databaseProviders = [
@@ -29,5 +30,5 @@ export const dataSource = new DataSource({
   database: 'postgres',
   entities: [__dirname + 'dist/**/*.entity.js'],
   synchronize: false,
-  migrations: [], // Classes from migrations here
+  migrations: [CourseRefactoring1675255779013], // Classes from migrations here
 });

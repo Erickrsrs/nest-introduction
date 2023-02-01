@@ -6,6 +6,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "typeorm:create": "npx typeorm migration:create src/migrations/CourseRefactoring",
+    "typeorm:run": "npx typeorm migration:run -d dist/database/database.providers.js",
+    "typeorm:revert": "npx typeorm migration:revert -d dist/database/database.providers.js",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
