@@ -1,4 +1,3 @@
-import { CourseRefactoring1675255779013 } from 'src/migrations/1675255779013-CourseRefactoring';
 import { DataSource } from 'typeorm';
 
 export const databaseProviders = [
@@ -7,11 +6,11 @@ export const databaseProviders = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'postgres',
-        host: 'localhost',
+        host: 'db',
         port: 5432,
         username: 'postgres',
-        password: 'dockerpass',
-        database: 'postgres',
+        password: 'docker',
+        database: 'cursonestjs',
         entities: [__dirname + '/../**/*.entity.js'],
         synchronize: false,
       });
@@ -23,12 +22,12 @@ export const databaseProviders = [
 
 export const dataSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
+  host: 'db',
   port: 5432,
   username: 'postgres',
-  password: 'dockerpass',
-  database: 'postgres',
+  password: 'docker',
+  database: 'cursonestjs',
   entities: [__dirname + 'dist/**/*.entity.js'],
   synchronize: false,
-  migrations: [CourseRefactoring1675255779013], // Classes from migrations here
+  migrations: [], // Classes from migrations here
 });
