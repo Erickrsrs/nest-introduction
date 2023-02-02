@@ -27,7 +27,7 @@ export const dataSource = new DataSource({
   username: 'postgres',
   password: 'docker',
   database: 'cursonestjs',
-  entities: [__dirname + 'dist/**/*.entity.js'],
+  entities: [__dirname + '/../**/*.entity.js'],
   synchronize: false,
-  migrations: [], // Classes from migrations here
+  migrations: [__dirname + '/../migrations/*.js'],
 });
